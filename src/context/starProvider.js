@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import StarContext from './starContext';
 
 export default function StarProvider({ children }) {
-  const columnFilter = document.getElementById('column');
   const [data, setData] = useState([{}]);
   const [search, setSearch] = useState('');
   const [filteredData, setFilteredData] = useState([{}]);
@@ -61,27 +60,85 @@ export default function StarProvider({ children }) {
         value,
       },
     });
-    columnFilter.childNodes.forEach((child) => {
-      if (child.value === column) {
-        child.remove();
-      }
-    });
   }
 
-  useEffect(() => {
-    const { filterByNumericValues: { column, comparison, value } } = filter;
-    if (column !== '') {
-      const filteredInfo = data.filter((planet) => {
-        const planetValue = Number(planet[column]);
-        if (comparison === 'maior que') return planetValue > Number(value);
-        if (comparison === 'menor que') return planetValue < Number(value);
-        if (comparison === 'igual a') return planetValue === Number(value);
-        return false;
-      });
-      setFilteredData(filteredInfo);
+  function searchPopulation(column, comparison, value) {
+    if (comparison === 'maior que') {
+      const filtered = data.filter((planet) => (planet.population > value));
+      setData(filtered);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter.filterByNumericValues]);
+    if (comparison === 'menor que') {
+      const filtered = data.filter((planet) => (planet.population < value));
+      setData(filtered);
+    }
+    if (comparison === 'igual a') {
+      const filtered = data.filter((planet) => (planet.population === value));
+      setData(filtered);
+    }
+  }
+
+  function searchOrbitalPeriod(column, comparison, value) {
+    if (comparison === 'maior que') {
+      const filtered = data.filter((planet) => (planet.orbital_period > value));
+      setData(filtered);
+    }
+    if (comparison === 'menor que') {
+      const filtered = data.filter((planet) => (planet.orbital_period < value));
+
+      setData(filtered);
+    }
+    if (comparison === 'igual a') {
+      const filtered = data.filter((planet) => (planet.orbital_period === value));
+      setData(filtered);
+    }
+  }
+
+  function searchDiameter(column, comparison, value) {
+    if (comparison === 'maior que') {
+      const filtered = data.filter((planet) => (planet.diameter > value));
+
+      setData(filtered);
+    }
+    if (comparison === 'menor que') {
+      const filtered = data.filter((planet) => (planet.diameter < value));
+
+      setData(filtered);
+    }
+    if (comparison === 'igual a') {
+      const filtered = data.filter((planet) => (planet.diameter === value));
+      setData(filtered);
+    }
+  }
+
+  function searchRotationPeriod(column, comparison, value) {
+    if (comparison === 'maior que') {
+      const filtered = data.filter((planet) => (planet.rotation_period > value));
+      setData(filtered);
+    }
+    if (comparison === 'menor que') {
+      const filtered = data.filter((planet) => (planet.rotation_period < value));
+      setData(filtered);
+    }
+    if (comparison === 'igual a') {
+      const filtered = data.filter((planet) => (planet.rotation_period === value));
+      setData(filtered);
+    }
+  }
+
+  function searchSurfaceWater(column, comparison, value) {
+    if (comparison === 'maior que') {
+      const filtered = data.filter((planet) => (planet.surface_water > value));
+      setData(filtered);
+    }
+    if (comparison === 'menor que') {
+      const filtered = data.filter((planet) => (planet.surface_water < value));
+      setData(filtered);
+    }
+    if (comparison === 'igual a') {
+      const filtered = data.filter((planet) => (planet.surface_water === value));
+      setData(filtered);
+    }
+  }
 
   const values = {
     data,
@@ -93,6 +150,11 @@ export default function StarProvider({ children }) {
     searchInput,
     setNumeric,
     filteredData,
+    searchPopulation,
+    searchOrbitalPeriod,
+    searchDiameter,
+    searchRotationPeriod,
+    searchSurfaceWater,
   };
 
   return (
