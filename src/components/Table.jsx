@@ -21,7 +21,6 @@ function Table() {
     'edited',
     'url'];
   const planets = filter.filterByName.name === '' ? data : filteredData;
-
   const rows = planets.map((planet) => headers.map((header) => planet[header])); // Auxílio de Marcello Alves
   return (
     <table>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import StarContext from '../context/starContext';
 
 export default function Header() {
@@ -9,10 +9,13 @@ export default function Header() {
     searchOrbitalPeriod,
     searchDiameter,
     searchRotationPeriod,
-    searchSurfaceWater } = values;
-  const [column, setColumn] = useState('');
-  const [comparison, setComparison] = useState('');
-  const [value, setValue] = useState(0);
+    searchSurfaceWater,
+    selectColumn,
+    selectComparison,
+    selectValue,
+    setSelectColumn,
+    setSelectComparison,
+    setSelectValue } = values;
 
   return (
     <div>
@@ -30,11 +33,9 @@ export default function Header() {
         id="filtros"
         data-testid="column-filter"
         onChange={ ({ target }) => {
-          setNumeric(target.value);
-          setColumn(target.value);
+          setSelectColumn(target.value);
         } }
       >
-        {/* fonte para oplaceholder no menu select: https://www.w3docs.com/snippets/css/how-to-create-a-placeholder-for-an-html5-select-box-by-using-only-html-and-css.html */}
         <option value="population">population</option>
         <option value="orbital_period">orbital_period</option>
         <option value="diameter">diameter</option>
@@ -47,8 +48,7 @@ export default function Header() {
         id="filtros"
         data-testid="comparison-filter"
         onChange={ ({ target }) => {
-          setNumeric(column, target.value);
-          setComparison(target.value);
+          setSelectComparison(target.value);
         } }
       >
         <option value="maior que">maior que</option>
@@ -57,13 +57,12 @@ export default function Header() {
       </select>
 
       <input
-        type="numbers"
+        type="number"
         name="name"
         id="name"
         data-testid="value-filter"
         onChange={ ({ target }) => {
-          setNumeric(column, comparison, target.value);
-          setValue(target.value);
+          setSelectValue(target.value);
         } }
       />
 
@@ -71,25 +70,25 @@ export default function Header() {
         type="button"
         data-testid="button-filter"
         onClick={ () => {
-          if (column === 'population') {
-            searchPopulation(column, comparison, value);
-            setNumeric(column, comparison, value);
+          if (selectColumn === 'population') {
+            searchPopulation(selectColumn, selectComparison, selectValue);
+            setNumeric(selectColumn, selectComparison, selectValue);
           }
-          if (column === 'orbital_period') {
-            searchOrbitalPeriod(column, comparison, value);
-            setNumeric(column, comparison, value);
+          if (selectColumn === 'orbital_period') {
+            searchOrbitalPeriod(selectColumn, selectComparison, selectValue);
+            setNumeric(selectColumn, selectComparison, selectValue);
           }
-          if (column === 'rotation_period') {
-            searchRotationPeriod(column, comparison, value);
-            setNumeric(column, comparison, value);
+          if (selectColumn === 'rotation_period') {
+            searchRotationPeriod(selectColumn, selectComparison, selectValue);
+            setNumeric(selectColumn, selectComparison, selectValue);
           }
-          if (column === 'diameter') {
-            searchDiameter(column, comparison, value);
-            setNumeric(column, comparison, value);
+          if (selectColumn === 'diameter') {
+            searchDiameter(selectColumn, selectComparison, selectValue);
+            setNumeric(selectColumn, selectComparison, selectValue);
           }
-          if (column === 'surface_water') {
-            searchSurfaceWater(column, comparison, value);
-            setNumeric(column, comparison, value);
+          if (selectColumn === 'surface_water') {
+            searchSurfaceWater(selectColumn, selectComparison, selectValue);
+            setNumeric(selectColumn, selectComparison, selectValue);
           }
         } }
       >

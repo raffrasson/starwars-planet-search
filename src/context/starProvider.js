@@ -4,7 +4,9 @@ import StarContext from './starContext';
 
 export default function StarProvider({ children }) {
   const [data, setData] = useState([{}]);
-  const [search, setSearch] = useState('');
+  const [selectColumn, setSelectColumn] = useState('population');
+  const [selectComparison, setSelectComparison] = useState('maior que');
+  const [selectValue, setSelectValue] = useState(0);
   const [filteredData, setFilteredData] = useState([{}]);
   const [filter, setFilter] = useState({
     filterByName: {
@@ -28,6 +30,7 @@ export default function StarProvider({ children }) {
         delete result.residents;
       });
       setData(results);
+      setFilteredData(results);
     };
     planetApi();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -52,23 +55,20 @@ export default function StarProvider({ children }) {
   }
 
   function setNumeric(column, comparison, value) {
-    setFilter({
-      ...filter,
-      filterByNumericValues: {
-        column,
-        comparison,
-        value,
-      },
+    filter.filterByNumericValues.push({
+      column,
+      comparison,
+      value,
     });
   }
 
   function searchPopulation(column, comparison, value) {
     if (comparison === 'maior que') {
-      const filtered = data.filter((planet) => (planet.population > value));
+      const filtered = data.filter((planet) => (Number(planet.population) > value));
       setData(filtered);
     }
     if (comparison === 'menor que') {
-      const filtered = data.filter((planet) => (planet.population < value));
+      const filtered = data.filter((planet) => (Number(planet.population) < value));
       setData(filtered);
     }
     if (comparison === 'igual a') {
@@ -79,11 +79,11 @@ export default function StarProvider({ children }) {
 
   function searchOrbitalPeriod(column, comparison, value) {
     if (comparison === 'maior que') {
-      const filtered = data.filter((planet) => (planet.orbital_period > value));
+      const filtered = data.filter((planet) => (Number(planet.orbital_period) > value));
       setData(filtered);
     }
     if (comparison === 'menor que') {
-      const filtered = data.filter((planet) => (planet.orbital_period < value));
+      const filtered = data.filter((planet) => (Number(planet.orbital_period) < value));
 
       setData(filtered);
     }
@@ -95,12 +95,12 @@ export default function StarProvider({ children }) {
 
   function searchDiameter(column, comparison, value) {
     if (comparison === 'maior que') {
-      const filtered = data.filter((planet) => (planet.diameter > value));
+      const filtered = data.filter((planet) => (Number(planet.diameter) > value));
 
       setData(filtered);
     }
     if (comparison === 'menor que') {
-      const filtered = data.filter((planet) => (planet.diameter < value));
+      const filtered = data.filter((planet) => (Number(planet.diameter) < value));
 
       setData(filtered);
     }
@@ -112,11 +112,11 @@ export default function StarProvider({ children }) {
 
   function searchRotationPeriod(column, comparison, value) {
     if (comparison === 'maior que') {
-      const filtered = data.filter((planet) => (planet.rotation_period > value));
+      const filtered = data.filter((planet) => (Number(planet.rotation_period) > value));
       setData(filtered);
     }
     if (comparison === 'menor que') {
-      const filtered = data.filter((planet) => (planet.rotation_period < value));
+      const filtered = data.filter((planet) => (Number(planet.rotation_period) < value));
       setData(filtered);
     }
     if (comparison === 'igual a') {
@@ -127,11 +127,11 @@ export default function StarProvider({ children }) {
 
   function searchSurfaceWater(column, comparison, value) {
     if (comparison === 'maior que') {
-      const filtered = data.filter((planet) => (planet.surface_water > value));
+      const filtered = data.filter((planet) => (Number(planet.surface_water) > value));
       setData(filtered);
     }
     if (comparison === 'menor que') {
-      const filtered = data.filter((planet) => (planet.surface_water < value));
+      const filtered = data.filter((planet) => (Number(planet.surface_water) < value));
       setData(filtered);
     }
     if (comparison === 'igual a') {
@@ -145,8 +145,6 @@ export default function StarProvider({ children }) {
     setData,
     filter,
     setFilter,
-    search,
-    setSearch,
     searchInput,
     setNumeric,
     filteredData,
@@ -155,6 +153,12 @@ export default function StarProvider({ children }) {
     searchDiameter,
     searchRotationPeriod,
     searchSurfaceWater,
+    selectColumn,
+    selectComparison,
+    selectValue,
+    setSelectColumn,
+    setSelectComparison,
+    setSelectValue,
   };
 
   return (
