@@ -61,6 +61,7 @@ export default function Header() {
         name="name"
         id="name"
         placeholder="0"
+        value="0"
         data-testid="value-filter"
         onChange={ ({ target }) => {
           setSelectValue(target.value);
