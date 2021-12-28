@@ -36,7 +36,7 @@ export default function Header() {
           setSelectColumn(target.value);
         } }
       >
-        <option value="population">population</option>
+        <option value="population" selected>population</option>
         <option value="orbital_period">orbital_period</option>
         <option value="diameter">diameter</option>
         <option value="rotation_period">rotation_period</option>
@@ -51,7 +51,7 @@ export default function Header() {
           setSelectComparison(target.value);
         } }
       >
-        <option value="maior que">maior que</option>
+        <option value="maior que" selected>maior que</option>
         <option value="menor que">menor que</option>
         <option value="igual a">igual a</option>
       </select>
@@ -60,6 +60,7 @@ export default function Header() {
         type="number"
         name="name"
         id="name"
+        placeholder="0"
         data-testid="value-filter"
         onChange={ ({ target }) => {
           setSelectValue(target.value);

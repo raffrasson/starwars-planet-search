@@ -14,9 +14,9 @@ export default function StarProvider({ children }) {
     },
     filterByNumericValues: [
       {
-        column: '',
-        comparison: '',
-        value: '',
+        column: 'population',
+        comparison: 'maior que',
+        value: 0,
       },
     ],
   });
