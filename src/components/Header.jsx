@@ -33,7 +33,6 @@ export default function Header() {
         data-testid="name-filter"
         onChange={ (event) => searchInput(event.target.value) }
       />
-
       <select
         name="filtros"
         id="filtros"
