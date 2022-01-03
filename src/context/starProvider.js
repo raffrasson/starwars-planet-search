@@ -4,8 +4,8 @@ import StarContext from './starContext';
 
 export default function StarProvider({ children }) {
   const [data, setData] = useState([{}]);
-  const [selectColumn, setSelectColumn] = useState('');
-  const [selectComparison, setSelectComparison] = useState('');
+  const [selectColumn, setSelectColumn] = useState('diameter');
+  const [selectComparison, setSelectComparison] = useState('igual a');
   const [selectValue, setSelectValue] = useState(0);
   const [filteredData, setFilteredData] = useState([{}]);
   const [comparisonArray] = useState(['maior que', 'menor que', 'igual a']);
