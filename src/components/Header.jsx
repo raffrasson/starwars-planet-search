@@ -48,7 +48,6 @@ export default function Header() {
           } return 'error';
         })}
       </select>
-
       <select
         name="filtros"
         id="filtros"
