@@ -4,18 +4,20 @@ import StarContext from './starContext';
 
 export default function StarProvider({ children }) {
   const [data, setData] = useState([{}]);
-  const [selectColumn, setSelectColumn] = useState('population');
-  const [selectComparison, setSelectComparison] = useState('maior que');
+  const [selectColumn, setSelectColumn] = useState('');
+  const [selectComparison, setSelectComparison] = useState('');
   const [selectValue, setSelectValue] = useState(0);
   const [filteredData, setFilteredData] = useState([{}]);
+  const [comparisonArray, setComparisonArray] = useState(['maior que', 'menor que', 'igual a'])
+  const [columnArray, setColumnArray] = useState(['rotation_period', 'population',	'orbital_period', 'diameter',	'surface_water'])
   const [filter, setFilter] = useState({
     filterByName: {
       name: '',
     },
     filterByNumericValues: [
       {
-        column: 'population',
-        comparison: 'maior que',
+        column: '',
+        comparison: '',
         value: 0,
       },
     ],
@@ -61,6 +63,8 @@ export default function StarProvider({ children }) {
       value,
     });
   }
+
+
 
   function searchPopulation(column, comparison, value) {
     if (comparison === 'maior que') {
@@ -159,6 +163,8 @@ export default function StarProvider({ children }) {
     setSelectColumn,
     setSelectComparison,
     setSelectValue,
+    comparisonArray,
+    columnArray,
   };
 
   return (

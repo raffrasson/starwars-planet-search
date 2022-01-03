@@ -15,7 +15,14 @@ export default function Header() {
     selectValue,
     setSelectColumn,
     setSelectComparison,
-    setSelectValue } = values;
+    setSelectValue,
+  comparisonArray,
+  columnArray,
+filter } = values;
+
+const comparisonFilterArray = filter.filterByNumericValues.map((el)=> el.comparison);
+const columnFilterArray = filter.filterByNumericValues.map((el)=> el.column);
+console.log(columnFilterArray);
 
   return (
     <div>
@@ -36,11 +43,13 @@ export default function Header() {
           setSelectColumn(target.value);
         } }
       >
-        <option value="population" selected>population</option>
-        <option value="orbital_period">orbital_period</option>
-        <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation_period</option>
-        <option value="surface_water">surface_water</option>
+        {columnArray.map((el,i) => {
+          if (el !== columnFilterArray[i]) {
+         return <option value = {el} >{el}</option>
+        } else return 'error'
+      }
+  )
+        }
       </select>
 
       <select
@@ -51,9 +60,14 @@ export default function Header() {
           setSelectComparison(target.value);
         } }
       >
-        <option value="maior que" selected>maior que</option>
-        <option value="menor que">menor que</option>
-        <option value="igual a">igual a</option>
+        
+        {comparisonArray.map((el,i) => {
+          if (el !== comparisonFilterArray[i]) {
+         return <option value = {el} >{el}</option>
+        }
+      }
+  )
+        }
       </select>
 
       <input
@@ -61,7 +75,6 @@ export default function Header() {
         name="name"
         id="name"
         placeholder="0"
-        value="0"
         data-testid="value-filter"
         onChange={ ({ target }) => {
           setSelectValue(target.value);
