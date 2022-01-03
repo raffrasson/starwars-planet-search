@@ -22,7 +22,6 @@ export default function Header() {
 
   const comparisonFilterArray = filter.filterByNumericValues.map((el) => el.comparison);
   const columnFilterArray = filter.filterByNumericValues.map((el) => el.column);
-  console.log(columnFilterArray);
 
   return (
     <div>

@@ -17,8 +17,8 @@ export default function StarProvider({ children }) {
     },
     filterByNumericValues: [
       {
-        column: '',
-        comparison: '',
+        column: 'diameter',
+        comparison: 'igual a',
         value: 0,
       },
     ],
