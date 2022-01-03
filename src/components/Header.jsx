@@ -42,6 +42,7 @@ export default function Header() {
           setSelectColumn(target.value);
         } }
       >
+
         {columnArray.map((el, i) => {
           if (el !== columnFilterArray[i]) {
             return <option value={ el }>{el}</option>;
