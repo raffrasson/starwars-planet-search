@@ -16,13 +16,13 @@ export default function Header() {
     setSelectColumn,
     setSelectComparison,
     setSelectValue,
-  comparisonArray,
-  columnArray,
-filter } = values;
+    comparisonArray,
+    columnArray,
+    filter } = values;
 
-const comparisonFilterArray = filter.filterByNumericValues.map((el)=> el.comparison);
-const columnFilterArray = filter.filterByNumericValues.map((el)=> el.column);
-console.log(columnFilterArray);
+  const comparisonFilterArray = filter.filterByNumericValues.map((el) => el.comparison);
+  const columnFilterArray = filter.filterByNumericValues.map((el) => el.column);
+  console.log(columnFilterArray);
 
   return (
     <div>
@@ -43,13 +43,11 @@ console.log(columnFilterArray);
           setSelectColumn(target.value);
         } }
       >
-        {columnArray.map((el,i) => {
+        {columnArray.map((el, i) => {
           if (el !== columnFilterArray[i]) {
-         return <option value = {el} >{el}</option>
-        } else return 'error'
-      }
-  )
-        }
+            return <option value={ el }>{el}</option>;
+          } return 'error';
+        })}
       </select>
 
       <select
@@ -60,14 +58,12 @@ console.log(columnFilterArray);
           setSelectComparison(target.value);
         } }
       >
-        
-        {comparisonArray.map((el,i) => {
+
+        {comparisonArray.map((el, i) => {
           if (el !== comparisonFilterArray[i]) {
-         return <option value = {el} >{el}</option>
-        }
-      }
-  )
-        }
+            return <option value={ el }>{el}</option>;
+          } return 'error';
+        })}
       </select>
 
       <input

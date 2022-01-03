@@ -8,8 +8,9 @@ export default function StarProvider({ children }) {
   const [selectComparison, setSelectComparison] = useState('');
   const [selectValue, setSelectValue] = useState(0);
   const [filteredData, setFilteredData] = useState([{}]);
-  const [comparisonArray, setComparisonArray] = useState(['maior que', 'menor que', 'igual a'])
-  const [columnArray, setColumnArray] = useState(['rotation_period', 'population',	'orbital_period', 'diameter',	'surface_water'])
+  const [comparisonArray] = useState(['maior que', 'menor que', 'igual a']);
+  const [columnArray] = useState(['rotation_period',
+    'population', 'orbital_period', 'diameter', 'surface_water']);
   const [filter, setFilter] = useState({
     filterByName: {
       name: '',
@@ -63,8 +64,6 @@ export default function StarProvider({ children }) {
       value,
     });
   }
-
-
 
   function searchPopulation(column, comparison, value) {
     if (comparison === 'maior que') {
