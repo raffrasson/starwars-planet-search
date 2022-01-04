@@ -4,21 +4,21 @@ import StarContext from './starContext';
 
 export default function StarProvider({ children }) {
   const [data, setData] = useState([{}]);
-  const [selectColumn, setSelectColumn] = useState('diameter');
-  const [selectComparison, setSelectComparison] = useState('igual a');
+  const [selectColumn, setSelectColumn] = useState('');
+  const [selectComparison, setSelectComparison] = useState('');
   const [selectValue, setSelectValue] = useState(0);
   const [filteredData, setFilteredData] = useState([{}]);
   const [comparisonArray] = useState(['maior que', 'menor que', 'igual a']);
-  const [columnArray] = useState(['rotation_period',
-    'population', 'orbital_period', 'diameter', 'surface_water']);
+  const [columnArray] = useState(['population', 'rotation_period',
+    'orbital_period', 'diameter', 'surface_water']);
   const [filter, setFilter] = useState({
     filterByName: {
       name: '',
     },
     filterByNumericValues: [
       {
-        column: 'diameter',
-        comparison: 'igual a',
+        column: '',
+        comparison: '',
         value: 0,
       },
     ],
@@ -69,31 +69,29 @@ export default function StarProvider({ children }) {
     if (comparison === 'maior que') {
       const filtered = data.filter((planet) => (Number(planet.population) > value));
       setData(filtered);
-    }
-    if (comparison === 'menor que') {
+    } else if (comparison === 'menor que') {
       const filtered = data.filter((planet) => (Number(planet.population) < value));
       setData(filtered);
-    }
-    if (comparison === 'igual a') {
+    } else if (comparison === 'igual a') {
       const filtered = data.filter((planet) => (planet.population === value));
       setData(filtered);
-    }
+    } else (setData(data.slice(2)));
   }
 
   function searchOrbitalPeriod(column, comparison, value) {
     if (comparison === 'maior que') {
       const filtered = data.filter((planet) => (Number(planet.orbital_period) > value));
       setData(filtered);
-    }
+    } else
     if (comparison === 'menor que') {
       const filtered = data.filter((planet) => (Number(planet.orbital_period) < value));
 
       setData(filtered);
-    }
+    } else
     if (comparison === 'igual a') {
       const filtered = data.filter((planet) => (planet.orbital_period === value));
       setData(filtered);
-    }
+    } else (setData(data.slice(2)));
   }
 
   function searchDiameter(column, comparison, value) {
@@ -101,46 +99,46 @@ export default function StarProvider({ children }) {
       const filtered = data.filter((planet) => (Number(planet.diameter) > value));
 
       setData(filtered);
-    }
+    } else
     if (comparison === 'menor que') {
       const filtered = data.filter((planet) => (Number(planet.diameter) < value));
 
       setData(filtered);
-    }
+    } else
     if (comparison === 'igual a') {
       const filtered = data.filter((planet) => (planet.diameter === value));
       setData(filtered);
-    }
+    } else (setData(data.slice(2)));
   }
 
   function searchRotationPeriod(column, comparison, value) {
     if (comparison === 'maior que') {
       const filtered = data.filter((planet) => (Number(planet.rotation_period) > value));
       setData(filtered);
-    }
+    } else
     if (comparison === 'menor que') {
       const filtered = data.filter((planet) => (Number(planet.rotation_period) < value));
       setData(filtered);
-    }
+    } else
     if (comparison === 'igual a') {
       const filtered = data.filter((planet) => (planet.rotation_period === value));
       setData(filtered);
-    }
+    } else (setData(data.slice(2)));
   }
 
   function searchSurfaceWater(column, comparison, value) {
     if (comparison === 'maior que') {
       const filtered = data.filter((planet) => (Number(planet.surface_water) > value));
       setData(filtered);
-    }
+    } else
     if (comparison === 'menor que') {
       const filtered = data.filter((planet) => (Number(planet.surface_water) < value));
       setData(filtered);
-    }
+    } else
     if (comparison === 'igual a') {
       const filtered = data.filter((planet) => (planet.surface_water === value));
       setData(filtered);
-    }
+    } else (setData(data.slice(2)));
   }
 
   const values = {

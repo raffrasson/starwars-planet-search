@@ -18,10 +18,11 @@ export default function Header() {
     setSelectValue,
     comparisonArray,
     columnArray,
-    filter } = values;
+    filter,
+    data,
+    setData } = values;
 
   const comparisonFilterArray = filter.filterByNumericValues.map((el) => el.comparison);
-  const columnFilterArray = filter.filterByNumericValues.map((el) => el.column);
 
   return (
     <div>
@@ -42,8 +43,8 @@ export default function Header() {
         } }
       >
 
-        {columnArray.map((el, i) => {
-          if (el !== columnFilterArray[i]) {
+        {columnArray.map((el) => {
+          if (el !== selectColumn) {
             return <option value={ el }>{el}</option>;
           } return 'error';
         })}
@@ -68,6 +69,7 @@ export default function Header() {
         type="number"
         name="name"
         id="name"
+        value={ selectValue }
         placeholder="0"
         data-testid="value-filter"
         onChange={ ({ target }) => {
@@ -79,26 +81,26 @@ export default function Header() {
         type="button"
         data-testid="button-filter"
         onClick={ () => {
-          if (selectColumn === 'population') {
+          if (selectColumn === 'population' && selectValue !== 0) {
             searchPopulation(selectColumn, selectComparison, selectValue);
             setNumeric(selectColumn, selectComparison, selectValue);
-          }
+          } else
           if (selectColumn === 'orbital_period') {
             searchOrbitalPeriod(selectColumn, selectComparison, selectValue);
             setNumeric(selectColumn, selectComparison, selectValue);
-          }
+          } else
           if (selectColumn === 'rotation_period') {
             searchRotationPeriod(selectColumn, selectComparison, selectValue);
             setNumeric(selectColumn, selectComparison, selectValue);
-          }
+          } else
           if (selectColumn === 'diameter') {
             searchDiameter(selectColumn, selectComparison, selectValue);
             setNumeric(selectColumn, selectComparison, selectValue);
-          }
+          } else
           if (selectColumn === 'surface_water') {
             searchSurfaceWater(selectColumn, selectComparison, selectValue);
             setNumeric(selectColumn, selectComparison, selectValue);
-          }
+          } else (setData(data.slice(2)));
         } }
       >
         filtrar
