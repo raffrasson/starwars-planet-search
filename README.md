@@ -29,5 +29,5 @@ npm install
 ``` 
 ## Executando aplicação
 
-* Acesse a página via *GitHub Pages* clicando [aqui.](/https://raffrasson.github.io/starwars-planet-search").
+* Acesse a página via *GitHub Pages* clicando [aqui.](/https://raffrasson.github.io/starwars-planet-search")
 
