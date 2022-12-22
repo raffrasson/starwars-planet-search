@@ -3,7 +3,7 @@
 # Contexto
 Aplicativo de listagem dos planetas do universo de *Star Wars*, com diversos critérios de filtragem.
 
-# Habilidades trabalhadas
+### Habilidades trabalhadas
 * Consumo de API;
 * Uso da *Context API* do React para gerenciamento de estado;
 * Uso dos Hooks do React *useState, useContext e UseEffect*
