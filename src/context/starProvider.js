@@ -26,7 +26,7 @@ export default function StarProvider({ children }) {
 
   useEffect(() => {
     const planetApi = async () => {
-      const planets = await fetch('https://swapi-trybe.herokuapp.com/api/planets/');
+      const planets = await fetch('https://swapi.dev/api/planets/');
       let results = await planets.json();
       results = results.results;
       results.forEach((result) => {
