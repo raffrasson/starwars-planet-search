@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "gh-pages": "^4.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1"
@@ -15,6 +16,7 @@
       "!src/index.js"
     ]
   },
+  "homepage": "https://raffrasson.github.io/starwars-planet-search",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -22,7 +24,10 @@
     "test-coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint:styles": "npx stylelint '**/*.css'",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx"
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
+    "predeploy": "npm run build",
+
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
