@@ -24,8 +24,8 @@ npm install
 ``` 
 ## Executando aplicação
 
-* Acesse a página via *GitHub Pages* clicando [aqui.](https://raffrasson.github.io/starwars-planet-search), ou...
-* Rode localmente executando:
+* Acesse a página via *GitHub Pages* clicando [aqui,](https://raffrasson.github.io/starwars-planet-search)
+* Ou rode localmente executando:
 
 ```bash
 npm start
