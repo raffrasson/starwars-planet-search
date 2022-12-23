@@ -6,13 +6,13 @@ Aplicativo de listagem dos planetas do universo de *Star Wars*, com diversos cri
 ### Habilidades trabalhadas
 * Consumo de API;
 * Uso da *Context API* do React para gerenciamento de estado;
-* Uso dos Hooks do React *useState, useContext e UseEffect*
+* Uso dos Hooks do React *useState, useContext e UseEffect*.
 * Uso de Hooks customizados.
 
 ## Técnologias usadas
 
 Front-end:
-> Desenvolvido usando: React, CSS3, HTML5, Javascript ES6
+> Desenvolvido usando: React, CSS3, HTML5, Javascript ES6.
 
 
 ## Instalando Dependências
@@ -22,7 +22,7 @@ Front-end:
 cd src/
 npm install
 ``` 
-## Executando aplicação
+## Executando a aplicação
 
 * Acesse a página via *GitHub Pages* clicando [aqui,](https://raffrasson.github.io/starwars-planet-search)
 * Ou rode localmente executando:
