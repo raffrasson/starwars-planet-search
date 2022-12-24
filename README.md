@@ -1,7 +1,7 @@
 # Star Wars Planet Search
 
 # Contexto
-Aplicativo de listagem dos planetas do universo de *Star Wars*, com diversos critérios de filtragem.
+Página desenvolvida em grupo 
 
 ### Habilidades trabalhadas
 * Consumo de API;
