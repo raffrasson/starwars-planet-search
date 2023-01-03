@@ -1,7 +1,7 @@
 # Star Wars Planet Search
 
 # Contexto
-Página desenvolvida em grupo 
+Essa aplicação permite a busca e exibição dos planetas do universo de Star Wars. É possível realizar a busca por diferentes critérios, bem como filtrar os resultados. 
 
 ### Habilidades trabalhadas
 * Consumo de API;
@@ -31,3 +31,5 @@ npm install
 npm start
 ``` 
 
+## Notas e referências:
+A API utilizada pode ser encontrada [aqui.](https://swapi.dev/)
