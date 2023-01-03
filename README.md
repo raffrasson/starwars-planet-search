@@ -25,7 +25,7 @@ npm install
 ## Executando a aplicação
 
 * Acesse a página via *GitHub Pages* clicando [aqui,](https://raffrasson.github.io/starwars-planet-search)
-* Ou rode localmente executando:
+* Ou rode localmente, após instalar as dependências, executando:
 
 ```bash
 npm start
